@@ -150,6 +150,26 @@ int main() {
     int kth_smallest = kthSmallest(matrix, k);
     std::cout << "The kth smallest element in the matrix is: " << kth_smallest << std::endl;
 
-    // call for task 5
+    std::cout << "Task 5" << std::endl;
+    int n;
+    std::cin >> n;
+
+    std::vector<int> nums(n);
+    for (int i = 0; i < n; ++i) {
+        std::cin >> nums[i];
+    }
+
+    int k;
+    std::cin >> k;
+
+    std::vector<int> kMostFrequent = topKFrequent(nums, k);
+
+    std::cout << "The " << k << " most frequent elements are: ";
+    for (int element : kMostFrequent) {
+        std::cout << element << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
     return 0;
 }
