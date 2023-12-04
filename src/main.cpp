@@ -53,7 +53,43 @@ int main() {
         std::cout << sum << std::endl;
     }
     std::cout << "Task 2" << std::endl;
-    // call for task 2
+    int n;
+    std::cin >> n;
+
+    std::vector<int> Y(n);
+    for (int i = 0; i < n; ++i) {
+        std::cin >> Y[i];
+    }
+
+    // Calculate the initial beautifulness
+    long long initial_beautifulness = 0;
+    for (int i = 0; i < n; ++i) {
+        initial_beautifulness += std::abs(Y[i] - (i + 1));
+    }
+
+    // Try swapping elements to maximize beautifulness
+    long long max_beautifulness = initial_beautifulness;
+
+    for (int i = 0; i < n; ++i) {
+        for (int j = i + 1; j < n; ++j) {
+            // Swap elements Y[i] and Y[j]
+            std::swap(Y[i], Y[j]);
+
+            long long curr_beautifulness = 0;
+            for (int k = 0; k < n; ++k) {
+                curr_beautifulness += std::abs(Y[k] - (k + 1));
+            }
+
+            // Update max_beautifulness if the current beautifulness is greater
+            max_beautifulness = std::max(max_beautifulness, curr_beautifulness);
+
+            // Swap back to restore the original permutation
+            std::swap(Y[i], Y[j]);
+        }
+    }
+
+    std::cout << max_beautifulness << std::endl;
+
     std::cout << "Task 3" << std::endl;
     // call for task 3
     std::cout << "Task 4" << std::endl;
