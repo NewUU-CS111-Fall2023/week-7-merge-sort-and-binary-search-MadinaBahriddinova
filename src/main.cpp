@@ -91,7 +91,50 @@ int main() {
     std::cout << max_beautifulness << std::endl;
 
     std::cout << "Task 3" << std::endl;
-    // call for task 3
+    int t;
+    std::cin >> t;
+
+    while (t--) {
+        int N, M;
+        std::cin >> N >> M;
+
+        std::vector<int> A(N), B(M);
+
+        for (int i = 0; i < N; ++i) {
+            std::cin >> A[i];
+        }
+
+        for (int i = 0; i < M; ++i) {
+            std::cin >> B[i];
+        }
+
+        std::vector<int> merged(N + M);
+
+        int i = 0, j = 0, k = 0;
+
+        while (i < N && j < M) {
+            if (A[i] >= B[j]) {
+                merged[k++] = A[i++];
+            } else {
+                merged[k++] = B[j++];
+            }
+        }
+
+        while (i < N) {
+            merged[k++] = A[i++];
+        }
+
+        while (j < M) {
+            merged[k++] = B[j++];
+        }
+
+        std::sort(merged.begin(), merged.end(), std::greater<int>());
+
+        for (int x = 0; x < N + M; ++x) {
+            std::cout << merged[x] << " ";
+        }
+        std::cout << std::endl;
+    }
     std::cout << "Task 4" << std::endl;
     // call for task 4
     std::cout << "Task 5" << std::endl;
