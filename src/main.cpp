@@ -5,6 +5,12 @@
  */
 
 #include <iostream>
+#include <vector>
+#include <unordered_map>
+#include <queue>
+#include <iostream>
+#include <algorithm>
+#include <cmath>
 #include "task_1.h"
 
 int main() {
