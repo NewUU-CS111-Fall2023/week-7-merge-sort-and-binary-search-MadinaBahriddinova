@@ -136,8 +136,20 @@ int main() {
         std::cout << std::endl;
     }
     std::cout << "Task 4" << std::endl;
-    // call for task 4
-    std::cout << "Task 5" << std::endl;
+    int n, k;
+    std::cin >> n >> k;
+
+    std::vector<std::vector<int>> matrix(n, std::vector<int>(n));
+
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            std::cin >> matrix[i][j];
+        }
+    }
+
+    int kth_smallest = kthSmallest(matrix, k);
+    std::cout << "The kth smallest element in the matrix is: " << kth_smallest << std::endl;
+
     // call for task 5
     return 0;
 }
